@@ -1,5 +1,6 @@
 from question_model import Question
 from data import question_data
+from quiz_brain import QuizBrain
 
 # create question bank that contains list of question objects each initialized with question and answer
 question_bank = []
@@ -13,7 +14,9 @@ for question in question_data:
 # we're converting data which has str key (easy to make typos) and convert it object
 # -> easier and foolproof way to access
 
-print(question_bank[0].text)
+q = QuizBrain(question_bank)
+q.next_question()
+
 
 
 
