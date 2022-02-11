@@ -7,7 +7,7 @@ question_bank = []
 # loop through question data
 for question in question_data:
     # create Question object from each entry in question data
-    question_object = Question(question["text"], question["answer"])
+    question_object = Question(question["question"], question["correct_answer"])
     # append each Question object to question bank
     question_bank.append(question_object)
 
@@ -19,6 +19,9 @@ quiz.next_question()
 
 while quiz.still_has_questions(): # if quiz still has questions remaining
     quiz.next_question()
+
+print("You completed the quiz.")
+print(f"Your score is {quiz.score}/{quiz.question_number}.")
 
 
 
