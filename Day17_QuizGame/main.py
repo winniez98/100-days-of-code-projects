@@ -14,9 +14,11 @@ for question in question_data:
 # we're converting data which has str key (easy to make typos) and convert it object
 # -> easier and foolproof way to access
 
-q = QuizBrain(question_bank)
-q.next_question()
+quiz = QuizBrain(question_bank)
+quiz.next_question()
 
+while quiz.still_has_questions(): # if quiz still has questions remaining
+    quiz.next_question()
 
 
 
