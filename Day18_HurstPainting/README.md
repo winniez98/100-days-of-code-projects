@@ -4,4 +4,5 @@ This is a creation of a dot artwork based of Damien Hurst dot's paintings. I use
 and it is attached as the `image.jpg` file.
 
 One random example of a graphic I created: 
+
 <img width="361" alt="image" src="https://user-images.githubusercontent.com/75088108/153993924-f1c637e8-fe52-4f10-b204-ede4cb46e3cf.png">
