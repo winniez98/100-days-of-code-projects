@@ -21,3 +21,8 @@ To learn more about my 100 Days of Code journey and read more on my thoughts, ch
 - Day 14: [Higher Lower Game](https://replit.com/repls/folder/Day%2014%3A%20Higher-Lower%20Game)
 
 ### Intermediate
+- Day 15: [Coffee Machine](https://github.com/winniez98/100-days-of-code-projects/tree/main/Day15_CoffeeMachine)
+- Day 16: [Coffee Machine Using OOP](https://github.com/winniez98/100-days-of-code-projects/tree/main/Day16_CoffeeMachineOOP)
+- Day 17: [Quiz Game](https://github.com/winniez98/100-days-of-code-projects/tree/main/Day17_QuizGame)
+- Day 18: [Dot Artwork](https://github.com/winniez98/100-days-of-code-projects/tree/main/Day18_HurstPainting)
+- Day 19: [Etch a Sketch](https://github.com/winniez98/100-days-of-code-projects/tree/main/Day19_EtchASketch), [Turtle Races](https://github.com/winniez98/100-days-of-code-projects/tree/main/Day19_TurtleRaces)
