@@ -1,4 +1,5 @@
-from turtle import Screen, Turtle
+from turtle import Screen
+from paddle import Paddle
 
 # TODO: Create a screen
 screen = Screen()
@@ -9,27 +10,9 @@ screen.title("Pong Game")
 screen.tracer(0)
 
 # TODO: Create and move a paddle
-# width = 20, height = 100
-# x-pos = 350, y = 0
-paddle = Turtle("square")
-paddle.color("white")
-paddle.speed("fastest")
-paddle.shapesize(stretch_len=5)
-paddle.setheading(90)
-paddle.penup()
-paddle.goto(x=350, y=0)
 
-
-
-
-
-# move paddle
-def up():
-    paddle.forward(20)
-
-
-def down():
-    paddle.backward(20)
+r_paddle = Paddle((350, 0))
+l_paddle = Paddle((-350, 0))
 
 
 game_on = True
@@ -38,8 +21,10 @@ while game_on:
     # need this when tracer = off
     screen.update()
     screen.listen()
-    screen.onkey(key="Up", fun=up)
-    screen.onkey(key="Down", fun=down)
+    screen.onkey(key="Up", fun=r_paddle.up)
+    screen.onkey(key="Down", fun=r_paddle.down)
+    screen.onkey(key="w", fun=l_paddle.up)
+    screen.onkey(key="s", fun=l_paddle.down)
 
 # screen.update()
 
