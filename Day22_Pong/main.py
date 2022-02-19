@@ -31,13 +31,17 @@ while game_on:
     # move left paddle
     screen.onkey(key="w", fun=l_paddle.up)
     screen.onkey(key="s", fun=l_paddle.down)
-    # delay so we can see ball move
+    # pause loop for short time during each iteration to see ball move
     time.sleep(0.1)
+
     ball.move()
+    # TODO: Detect collision with wall and bounce
+    # only need to detect collision on top and bottom wall -> on the side, it should be caught by paddles
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        ball.bounce()
 
-# screen.update()
 
-# TODO: Detect collision with wall and bounce
+
 
 # TODO: Detect when paddle misses
 
