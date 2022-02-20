@@ -1,6 +1,7 @@
 from turtle import Screen
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 import time
 
 # TODO: Create a screen
@@ -18,21 +19,25 @@ r_paddle = Paddle((350, 0))
 l_paddle = Paddle((-350, 0))
 
 ball = Ball()
+scoreboard = Scoreboard()
+
+screen.listen()
+# move right paddle
+# onkeypress to make sure you can hold down key and keep paddle moving
+screen.onkeypress(key="Up", fun=r_paddle.up)
+screen.onkeypress(key="Down", fun=r_paddle.down)
+# move left paddle
+screen.onkeypress(key="w", fun=l_paddle.up)
+screen.onkeypress(key="s", fun=l_paddle.down)
 
 game_on = True
 
 while game_on:
     # need this when tracer = off
     screen.update()
-    screen.listen()
-    # move right paddle
-    screen.onkey(key="Up", fun=r_paddle.up)
-    screen.onkey(key="Down", fun=r_paddle.down)
-    # move left paddle
-    screen.onkey(key="w", fun=l_paddle.up)
-    screen.onkey(key="s", fun=l_paddle.down)
+
     # pause loop for short time during each iteration to see ball move
-    time.sleep(0.1)
+    time.sleep(ball.move_speed)
 
     ball.move()
     # TODO: Detect collision with wall and bounce
@@ -54,10 +59,16 @@ while game_on:
         ball.bounce_x()
 
     # TODO: Detect when paddle misses
-    if (ball.distance(r_paddle) > 50 and ball.xcor() > 340) or (ball.distance(l_paddle) > 50 and ball.xcor() < -340):
+    # detect right paddle miss
+    if ball.distance(r_paddle) > 50 and ball.xcor() > 380:
         ball.reset_ball()
+        ball.bounce_x()
+        scoreboard.l_point()
 
-
-# TODO: Keep score
+    # detect left paddle miss
+    if ball.distance(l_paddle) > 50 and ball.xcor() < -380:
+        ball.reset_ball()
+        ball.bounce_x()
+        scoreboard.r_point()
 
 screen.exitonclick()
