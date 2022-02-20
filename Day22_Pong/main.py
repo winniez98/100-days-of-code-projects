@@ -38,12 +38,25 @@ while game_on:
     # TODO: Detect collision with wall and bounce
     # only need to detect collision on top and bottom wall -> on the side, it should be caught by paddles
     if ball.ycor() > 280 or ball.ycor() < -280:
-        ball.bounce()
+        ball.bounce_y()
 
+    # TODO: Detect collision with paddle
+    # normally use distance method to check distance with wall and paddle
+    # if less than certain amount, can be sure they hit
+    # ball.distance(paddle) < 20 -> probably made contact
+    # but what if ball doesn't hit paddle in the centre?
+    # distance measures from centre of ball to centre of paddle -> won't register as collision
+    # add additional condition: if ball went past certain point on x axis AND its within 50 px distance from paddle
+    # then probably made contact with paddle
 
+    # detect collision with paddle
+    if (ball.distance(r_paddle) < 50 and ball.xcor() > 320) or (ball.distance(l_paddle) < 50 and ball.xcor() < -320):
+        ball.bounce_x()
 
+    # TODO: Detect when paddle misses
+    if (ball.distance(r_paddle) > 50 and ball.xcor() > 340) or (ball.distance(l_paddle) > 50 and ball.xcor() < -340):
+        ball.reset_ball()
 
-# TODO: Detect when paddle misses
 
 # TODO: Keep score
 
