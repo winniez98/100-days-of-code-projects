@@ -11,6 +11,7 @@ screen.tracer(0)
 
 player = Player()
 car_manager = CarManager()
+scoreboard = Scoreboard()
 
 # TODO: Turtle moves up when you press up key
 screen.listen()
@@ -34,11 +35,15 @@ while game_is_on:
     for car in car_manager.cars:
         if player.distance(car) < 20:
             game_is_on = False
+            scoreboard.game_over()
 
     # TODO: Detect when player has reached edge of the screen
+    # another option
+    # if player.is_at_finish_line():
     if player.ycor() > player.finish_line:
         car_manager.increase_speed()
-        player.create_turtle()
+        player.go_to_start()
+        scoreboard.increase_level()
 
 
 screen.exitonclick()
