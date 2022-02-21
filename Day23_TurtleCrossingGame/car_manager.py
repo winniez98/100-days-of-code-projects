@@ -24,6 +24,5 @@ class CarManager:
         self.cars.append(new_car)
 
     def move(self):
-        for i in range(len(self.cars) - 1):
-            x_cor = self.cars[i].xcor() - STARTING_MOVE_DISTANCE
-            self.cars[i].goto(x_cor, self.cars[i].ycor())
+        for car in self.cars:
+            car.backward(STARTING_MOVE_DISTANCE)
