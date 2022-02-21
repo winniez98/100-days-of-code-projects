@@ -27,11 +27,18 @@ while game_is_on:
     i += 1
     if i % 6 == 0:
         car_manager.add_car()
+
     car_manager.move()
 
     # TODO: Detect collision with a car
     for car in car_manager.cars:
-        if player.distance(car) < 25:
+        if player.distance(car) < 20:
             game_is_on = False
+
+    # TODO: Detect when player has reached edge of the screen
+    if player.ycor() > player.finish_line:
+        car_manager.increase_speed()
+        player.create_turtle()
+
 
 screen.exitonclick()
