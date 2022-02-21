@@ -6,6 +6,7 @@ FINISH_LINE_Y = 280
 
 
 class Player(Turtle):
+
     def __init__(self):
         super().__init__()
         # TODO: Create turtle that starts at bottom of the screen
