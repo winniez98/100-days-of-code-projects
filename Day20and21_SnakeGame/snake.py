@@ -33,6 +33,16 @@ class Snake:
         new_square.goto(position)
         self.squares.append(new_square)
 
+    def reset(self):
+        # remove squares added to list
+        # doing everything in init b/c we're initializing snake again
+        # loop through all segments and tell them to go to a place that's off screen
+        for square in self.squares:
+            square.goto(1000, 100)
+        self.squares.clear()
+        self.create_snake()
+        self.head = self.squares[0]
+
     def extend(self):
         # get position of last segment
         # add new segment to same position as new segment

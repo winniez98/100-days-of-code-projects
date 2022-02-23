@@ -49,8 +49,10 @@ while game_continues:
     # game should end -> Game Over
     # snake stops moving
     if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
-        game_continues = False
-        scoreboard.game_over()
+        # game_continues = False
+        # scoreboard.game_over()
+        scoreboard.reset()
+        snake.reset()
 
     # TODO: Detect collision with tail
     # game over
@@ -64,8 +66,9 @@ while game_continues:
         # if that's not the case, then check
         # if snake head has distance less than 10 from segment we're looping through
         if snake.head.distance(square) < 10:
-            game_continues = False
-            scoreboard.game_over()
-
+            # game_continues = False
+            # scoreboard.game_over()
+            scoreboard.reset()
+            snake.reset()
 
 screen.exitonclick()
